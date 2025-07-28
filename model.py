@@ -59,6 +59,12 @@ class InvalidInputError(Exception):
 def double_sided_t_test_for_coefficients(X: np.matrix, y: np.array, beta: np.array):
     """
     Method to compute the t-statistic for the coefficients of the linear regression model.
+    H0: The coefficient is equal to zero (beta coefficient)
+    H1: The coefficient is not equal to zero (beta coefficient)
+    Test statistic: The test uses a t-statistic calculated from the sample data, following a 
+    a t-distribution with n - p degrees of freedom, where n is the number of observations and p is the number of parameters.
+    Significance level: The significance level is typically set at 0.05, which corresponds to a 95% confidence level.
+    Returns: A dictionary with the t-statistic and p-value for each coefficient.
     """
     pass
 
@@ -66,12 +72,8 @@ def double_sided_t_test_for_coefficients(X: np.matrix, y: np.array, beta: np.arr
 def f_statistic(X: np.matrix, y: np.array, beta: np.array):
     """
     Method to compute the F-statistic for the linear regression model.
-    """
-    pass
+    
 
-def compute_homoscedasticity(X: np.matrix, y: np.array, beta: np.array):
-    """
-    Method to compute the homoscedasticity of the linear regression model.
     """
     pass
 
@@ -81,8 +83,18 @@ def check_multicollinearity(X: np.matrix):
     """
     pass
 
-def check_guass_markov_assumptions(X: np.matrix, y: np.array):
-    """
-    Method to check the Gauss-Markov assumptions for the linear regression model.
-    """
-    pass
+
+
+class GaussMarkovAssumptions:
+
+    def compute_homoscedasticity(X: np.matrix, y: np.array, beta: np.array):
+        """
+        Method to compute the homoscedasticity of the linear regression model.
+        """
+        pass
+    
+    def check_linearity(X: np.matrix, y: np.array):
+        """
+        Method to check the linearity of the linear regression model.
+        """
+        pass
