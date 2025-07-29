@@ -52,6 +52,13 @@ def check_for_outliers_in_regressors(X: np.matrix):
     """
     pass
 
+def check_if_constant_term_is_present(X: np.matrix):
+    """
+    Method to check if the constant term is present in the linear regression model.
+    If not, it will add a column of ones to the matrix X.
+    """
+   pass
+
 class GaussMarkovAssumptions:
 
     def compute_homoscedasticity(X: np.matrix, y: np.array, beta: np.array):
