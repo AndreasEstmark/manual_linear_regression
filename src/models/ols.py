@@ -45,7 +45,10 @@ class OLSRegression(LinearRegressionBase):
         beta= inv(X.T @ X) @ X.T @ y
         self.coef_  = beta
 
-        y_hat = X @ beta
+        print(X.shape)
+        print(beta.shape)
+
+        y_hat = X @ beta.T
 
         residuals = y - y_hat
 
