@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from numpy.linalg import inv
 from ..utils import check_if_matrix_is_invertible
-from models.model_base import LinearRegression
+from models.base import LinearRegressionBase
 
 
 
@@ -10,7 +10,6 @@ from models.model_base import LinearRegression
 
 class WLSRegression(LinearRegression):
   
-
     def __init__(self):
         super().__init__()
 

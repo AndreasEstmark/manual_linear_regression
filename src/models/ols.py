@@ -1,14 +1,14 @@
 import pandas as pd
 import numpy as np
 from numpy.linalg import inv
-from src.utils import check_if_matrix_is_invertible
-from src.models.model_base import LinearRegression
+from utils import check_if_matrix_is_invertible
+from models.base import LinearRegressionBase
 
 
 
 # first define the model:
 
-class OLSRegression(LinearRegression):
+class OLSRegression(LinearRegressionBase):
     """Linear Regression Model Class
     This class implements a simple linear regression model."""
 

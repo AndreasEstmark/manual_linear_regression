@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from numpy.linalg import inv
-from src.utils import check_if_matrix_is_invertible
+from utils import check_if_matrix_is_invertible
 from abc import ABC, abstractmethod
 
 class LinearRegressionBase(ABC):

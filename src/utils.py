@@ -57,7 +57,7 @@ def check_if_constant_term_is_present(X: np.matrix):
     Method to check if the constant term is present in the linear regression model.
     If not, it will add a column of ones to the matrix X.
     """
-   pass
+    pass
 
 class GaussMarkovAssumptions:
 
