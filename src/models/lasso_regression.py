@@ -1,18 +1,17 @@
 import pandas as pd
 import numpy as np
 from numpy.linalg import inv
-from ..utils import check_if_matrix_is_invertible
-from models.model_base import LinearRegression
+from src.utils import check_if_matrix_is_invertible
+from src.models.model_base import LinearRegression
 
 
 
 # first define the model:
 
-class WLSRegression(LinearRegression):
+class LassoRegression(LinearRegression):
   
 
     def __init__(self):
-        super().__init__()
 
         self.coef_ = None
         self.intercept_ = None

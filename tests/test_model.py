@@ -3,6 +3,8 @@ import pytest
 from model import LinearRegression
 from utils import check_if_matrix_is_invertible
 
+
+# old code
 # Test LinearRegression fit method with a simple dataset
 def test_fit_returns_correct_shape():
     X = np.matrix([[1, 2], [1, 3], [1, 4]])

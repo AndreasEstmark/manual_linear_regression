@@ -8,9 +8,14 @@ class LinearRegressionBase(ABC):
     """Abstract base class for linear regression models."""
 
     def __init__(self):
+        super().__init__() # here in the base class this is not strictly needed
         self.coef_ = None
         self.intercept_ = None
 
+    @abstractmethod
+    def __str__(self):
+        pass
+    
     @abstractmethod
     def fit(self, X, y):
         pass
