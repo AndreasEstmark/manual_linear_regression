@@ -1,13 +1,14 @@
 import pandas as pd
 import numpy as np
 from numpy.linalg import inv
-from utils import check_if_matrix_is_invertible
+from src.utils import check_if_matrix_is_invertible
+from src.model_base import LinearRegression
 
 
 
 # first define the model:
 
-class LinearRegression:
+class MLERegression(LinearRegression):
     """Linear Regression Model Class
     This class implements a simple linear regression model."""
 
@@ -35,8 +36,7 @@ class LinearRegression:
 
         # need to rewrite:
         # it can only move to this section if the matrix is non-singular. 
-
-        # beta = (X.T @ X)⁻¹ @ X.T @ y
+        # This formula gives the best linear unbiased estimator (BLUE) of the regression coefficients under the Gauss-Markov assumptions.
         beta  = inv(X.T @ X) @ X.T @ y
 
         check_if_matrix_is_invertible(X.T @ X)
