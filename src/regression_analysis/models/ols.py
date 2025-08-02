@@ -1,6 +1,6 @@
 import numpy as np
 from numpy.linalg import inv
-from utils import check_if_matrix_is_invertible
+from regression_analysis.utils import check_if_matrix_is_invertible
 from models.base import LinearRegressionBase
 
 

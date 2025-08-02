@@ -1,13 +1,14 @@
+import pandas as pd
 import numpy as np
 from numpy.linalg import inv
-from ..regression_analysis.utils import check_if_matrix_is_invertible
+from ..utils import check_if_matrix_is_invertible
 from models.base import LinearRegressionBase
 
 
 
 # first define the model:
 
-class WLSRegression(LinearRegressionBase):
+class WLSRegression(LinearRegression):
   
     def __init__(self):
         super().__init__()

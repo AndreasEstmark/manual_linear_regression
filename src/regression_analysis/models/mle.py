@@ -1,16 +1,18 @@
+import pandas as pd
 import numpy as np
 from numpy.linalg import inv
-from ..regression_analysis.utils import check_if_matrix_is_invertible
-from models.base import LinearRegressionBase
+from src.utils import check_if_matrix_is_invertible
+from src.model_base import LinearRegression
 
 
 
 # first define the model:
 
-class WLSRegression(LinearRegressionBase):
-  
+class MLERegression(LinearRegression):
+    """Linear Regression Model Class
+    This class implements a simple linear regression model."""
+
     def __init__(self):
-        super().__init__()
 
         self.coef_ = None
         self.intercept_ = None
@@ -32,7 +34,18 @@ class WLSRegression(LinearRegressionBase):
             raise TypeError("y must be a numpy array.")
         
 
-    
+        # need to rewrite:
+        # it can only move to this section if the matrix is non-singular. 
+        # This formula gives the best linear unbiased estimator (BLUE) of the regression coefficients under the Gauss-Markov assumptions.
+        beta  = inv(X.T @ X) @ X.T @ y
+
+        check_if_matrix_is_invertible(X.T @ X)
+
+        # erors = y - .dot(beta)
+        # squared_error = (np.transpose(e).dot(e))
+        # y_demeaned_b = np.transpose(y - np.mean(y)).dot(y - np.mean(y))
+        # r2 = 1 - (np.transpose(e).dot(e) / y_demeaned_b)
+
         return beta
     
 

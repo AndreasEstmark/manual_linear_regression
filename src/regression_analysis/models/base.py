@@ -1,5 +1,5 @@
 from numpy.linalg import inv
-from src.regression_analysis.utils import check_if_matrix_is_invertible
+from utils import check_if_matrix_is_invertible
 from abc import ABC, abstractmethod
 
 class LinearRegressionBase(ABC):
