@@ -1,14 +1,13 @@
-import pandas as pd
 import numpy as np
 from numpy.linalg import inv
-from ..utils import check_if_matrix_is_invertible
+from ..utils.diagnostics import check_if_matrix_is_invertible
 from models.base import LinearRegressionBase
 
 
 
 # first define the model:
 
-class WLSRegression(LinearRegression):
+class WLSRegression(LinearRegressionBase):
   
     def __init__(self):
         super().__init__()
@@ -17,9 +16,9 @@ class WLSRegression(LinearRegression):
         self.intercept_ = None
 
     def __str__(self):
-        return f"<LinearRegression: intercept={self.intercept_}, R²={self.r_squared_}>"
+        return f"LinearRegression: wls"
 
-    def fit (self, X: np.matrix, y: np.array):
+    def simple_fit (self, X: np.matrix, y: np.array):
         """
         Method to compute the parameters of linear regression and R squared.
         """

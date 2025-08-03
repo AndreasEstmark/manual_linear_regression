@@ -3,7 +3,7 @@ name = "regression-analysis"
 version = "1"
 description = "regression analysis"
 authors = [
-    {name = "Your Name",email = "you@example.com"}
+    {name = "Your Name", email = "you@example.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.11"
@@ -15,9 +15,14 @@ dependencies = [
     "scikit-learn (>=1.7.0,<2.0.0)",
     "pytest (>=8.4.1,<9.0.0)",
     "polars (>=1.32.0,<2.0.0)",
-    "pyarrow (>=21.0.0,<22.0.0)"
+    "pyarrow (>=21.0.0,<22.0.0)",
+    "ipykernel (>=6.30.0,<7.0.0)"
 ]
 
+[tool.poetry]
+packages = [
+  { include = "regression_analysis", from = "src" }
+]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
