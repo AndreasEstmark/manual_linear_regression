@@ -42,26 +42,15 @@ class OLSRegression(LinearRegressionBase):
 
         check_if_matrix_is_invertible(X.T @ X)
 
-
         beta = inv(X.T @ X) @ X.T @ y        
         
         self.coef_  = beta
 
-        print(X.shape)
-        print(beta.shape)
-
         y_hat = X @ beta
 
         residuals = y - y_hat
-        print(f'Residuals shape: { y - y_hat}')
-    
-        print(y_hat.shape)
-        print(residuals.shape)
+      
         squared_residuals = residuals.T @ residuals
-
-        print(f"y.shape: {y.shape}, type: {type(y)}")
-        print(f"y_hat.shape: {y_hat.shape}, type: {type(y_hat)}")
-
         # r squared calculation:
         sum_of_squared_residuals = np.sum(squared_residuals)
         total_sum_of_squares = np.sum((y - np.mean(y)) ** 2)    
@@ -70,7 +59,7 @@ class OLSRegression(LinearRegressionBase):
         return self
 
     def fit_and_diagnostics(self, X: np.ndarray, y: np.ndarray):
-        model = self.simple_fit(X, y)
+        #model = self.simple_fit(X, y)
 
         check_multicollinearity_in_regressors(X)
 

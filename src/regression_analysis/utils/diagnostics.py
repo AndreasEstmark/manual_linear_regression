@@ -1,5 +1,7 @@
 import numpy as np
 
+
+
 """
 Utility functions for linear regression model diagnostics and checks.
 """
@@ -27,9 +29,22 @@ def compute_f_statistic(X: np.ndarray, y: np.array, beta: np.array):
 def check_multicollinearity_in_regressors(X: np.ndarray):
     """
     Method to check for multicollinearity in the linear regression model. Using VIF
+    X is the full design matrix.
+    A value of VIF > 10 is considered high and indicates multicollinearity. 
+    The function only does for one regressor now. 
     """
-    print(X.shape[1])
 
+    # TODO implement loop or some list comprehension.  
+    from regression_analysis.models.ols import OLSRegression 
+    k_shape = X.shape[1]
+
+    x_i = X[:, 1]
+    mask = np.arange(k_shape) != 1
+    x_noti = X[:, mask]
+
+    model = OLSRegression().simple_fit(x_noti, x_i)
+
+    print(f"VIF for x_i: {1 / (1 - model.r_squared_)}")
     pass
 
 def check_if_matrix_is_invertible(X: np.ndarray):
