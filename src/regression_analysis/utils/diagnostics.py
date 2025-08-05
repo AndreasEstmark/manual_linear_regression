@@ -35,17 +35,24 @@ def check_multicollinearity_in_regressors(X: np.ndarray):
     """
 
     # TODO implement loop or some list comprehension.  
-    from regression_analysis.models.ols import OLSRegression 
+    from regression_analysis.models.ols import OLSRegression
+
     k_shape = X.shape[1]
 
-    x_i = X[:, 1]
-    mask = np.arange(k_shape) != 1
-    x_noti = X[:, mask]
+    for i in range(X.shape[1]):
+        print(i)
 
-    model = OLSRegression().simple_fit(x_noti, x_i)
+        x_i = X[:, i]
+        mask = np.arange(k_shape) != i
+        x_noti = X[:, mask]
 
-    print(f"VIF for x_i: {1 / (1 - model.r_squared_)}")
-    pass
+        x_noti = np.column_stack((np.ones(len(x_i)), x_noti))
+
+        model = OLSRegression().simple_fit(x_noti, x_i)
+
+        print(f"VIF for x_i: {1 / (1 - model.r_squared_)}")
+
+    return 
 
 def check_if_matrix_is_invertible(X: np.ndarray):
     """

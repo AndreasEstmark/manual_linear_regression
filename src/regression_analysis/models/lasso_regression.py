@@ -1,25 +1,23 @@
-import pandas as pd
 import numpy as np
 from numpy.linalg import inv
-from src.utils import check_if_matrix_is_invertible
-from src.models.model_base import LinearRegression
-
+from ..utils.diagnostics import check_if_matrix_is_invertible
+from models.base import LogisticRegressionBase
 
 
 # first define the model:
 
-class LassoRegression(LinearRegression):
+class LassoRegression(LogisticRegressionBase):
   
 
     def __init__(self):
-
+        super().__init__()
         self.coef_ = None
         self.intercept_ = None
 
     def __str__(self):
-        return f"<LinearRegression: intercept={self.intercept_}, R²={self.r_squared_}>"
+        return f"LinearRegression:"
 
-    def fit (self, X: np.matrix, y: np.array):
+    def simple_fit (self, X: np.matrix, y: np.array):
         """
         Method to compute the parameters of linear regression and R squared.
         """
@@ -31,10 +29,9 @@ class LassoRegression(LinearRegression):
         
         if not isinstance(y, np.ndarray):
             raise TypeError("y must be a numpy array.")
-        
-
     
-        return beta
+    
+        pass
     
 
     def predict(self, X: np.matrix):
@@ -48,8 +45,4 @@ class LassoRegression(LinearRegression):
         pass
 
 
-
-
-class InvalidInputError(Exception):
-    pass
 
