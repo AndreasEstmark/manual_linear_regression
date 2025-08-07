@@ -36,17 +36,9 @@ class MLERegression(LinearRegressionBase):
         # need to rewrite:
         # it can only move to this section if the matrix is non-singular. 
      
-        n, p = X.shape
-
-
-        return beta
-    
-
-    def predict(self, X: np.matrix):
         pass
 
-
-    def r_squared(self, X: np.matrix, y: np.array):
+    def predict(self, X: np.matrix):
         pass
 
     def p_values_for_coefficients(self):

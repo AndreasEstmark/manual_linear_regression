@@ -1,6 +1,4 @@
 import numpy as np
-from abc import ABC, abstractmethod
-
 
 from models.base import LogisticRegressionBase  
 
@@ -13,17 +11,6 @@ class LogisticRegression(LogisticRegressionBase):
     def __str__(self):
         return f"LogisticRegression:"
     
-
-class LogisticRegression(ABC):
-
-    def __init__(self):
-        super().__init__() 
-        self.coef_ = None
-        self.intercept_ = None
-
-    def __str__(self):
-        pass
-
     def sigmoid(self, z: np.ndarray):
         """
         Compute the sigmoid function.

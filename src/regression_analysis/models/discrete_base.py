@@ -37,7 +37,7 @@ class LogisticRegressionBase(ABC):
         """
         pass
     
-     @abstractmethod
+    @abstractmethod
     def fit_and_predict(self, X: np.ndarray, y: np.ndarray):
         """
         Fit the model and make predictions.

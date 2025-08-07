@@ -39,10 +39,6 @@ class WLSRegression(LinearRegressionBase):
     def predict(self, X: np.matrix):
         pass
 
-
-    def r_squared(self, X: np.matrix, y: np.array):
-        pass
-
     def p_values_for_coefficients(self):
         pass
 

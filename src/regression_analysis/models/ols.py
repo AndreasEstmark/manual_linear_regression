@@ -3,6 +3,7 @@ from numpy.linalg import inv
 from regression_analysis.utils.diagnostics import check_if_matrix_is_invertible
 from models.base import LinearRegressionBase
 from regression_analysis.utils.diagnostics import *
+from regression_analysis.utils.diagnostics_handling import handle_high_vif_columns
 
 
 
@@ -18,8 +19,8 @@ class OLSRegression(LinearRegressionBase):
 
         super().__init__()
         self.coef_ = None         # Coefficients (without intercept)
-        self.intercept_ = None    # Intercept
-        self.r_squared_ = None
+        self.intercept = None    # Intercept
+        self.r_squared = None
 
     def __str__(self):
         return f"LinearRegression: ols"
@@ -54,24 +55,22 @@ class OLSRegression(LinearRegressionBase):
         # r squared calculation:
         sum_of_squared_residuals = np.sum(squared_residuals)
         total_sum_of_squares = np.sum((y - np.mean(y)) ** 2)    
-        self.r_squared_ = 1 - (sum_of_squared_residuals / total_sum_of_squares)
+        self.r_squared = 1 - (sum_of_squared_residuals / total_sum_of_squares)
 
         return self
 
     def fit_and_diagnostics(self, X: np.ndarray, y: np.ndarray):
         #model = self.simple_fit(X, y)
 
-        check_multicollinearity_in_regressors(X)
+        vifs = check_multicollinearity_in_regressors(X)
 
-        pass
+        X = handle_high_vif_columns(X, vifs)
+        return self.simple_fit(X, y)
 
     def fit_and_predict(self, X, y):
         pass
 
     def predict(self, X: np.matrix):
-        pass
-
-    def r_squared(self, X: np.matrix, y: np.array):
         pass
 
     def p_values_for_coefficients(self):

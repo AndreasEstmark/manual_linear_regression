@@ -37,10 +37,6 @@ class LinearRegressionBase(ABC):
         pass
 
     @abstractmethod
-    def r_squared(self):
-        pass
-
-    @abstractmethod
     def p_values_for_coefficients(self):
         pass
  

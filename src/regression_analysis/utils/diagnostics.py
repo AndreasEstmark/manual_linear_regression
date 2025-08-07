@@ -26,7 +26,7 @@ def compute_f_statistic(X: np.ndarray, y: np.array, beta: np.array):
     """
     pass
 
-def check_multicollinearity_in_regressors(X: np.ndarray):
+def check_multicollinearity_in_regressors(X: np.ndarray) -> dict:
     """
     Method to check for multicollinearity in the linear regression model. Using VIF
     X is the full design matrix.
@@ -39,9 +39,10 @@ def check_multicollinearity_in_regressors(X: np.ndarray):
 
     k_shape = X.shape[1]
 
-    for i in range(X.shape[1]):
-        print(i)
+    list_of_vifs = {}
 
+    for i in range(X.shape[1]):
+        # For each regressor x_i, we compute the VIF
         x_i = X[:, i]
         mask = np.arange(k_shape) != i
         x_noti = X[:, mask]
@@ -50,9 +51,12 @@ def check_multicollinearity_in_regressors(X: np.ndarray):
 
         model = OLSRegression().simple_fit(x_noti, x_i)
 
-        print(f"VIF for x_i: {1 / (1 - model.r_squared_)}")
+        print(f"VIF for x_i: {1 / (1 - model.r_squared)}")
 
-    return 
+        list_of_vifs[f"x_{i}"] = 1 / (1 - model.r_squared)
+    
+
+    return list_of_vifs
 
 def check_if_matrix_is_invertible(X: np.ndarray):
     """

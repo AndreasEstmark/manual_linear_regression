@@ -1,12 +1,12 @@
 import numpy as np
 from numpy.linalg import inv
 from ..utils.diagnostics import check_if_matrix_is_invertible
-from models.base import LogisticRegressionBase
+from models.base import LinearRegressionBase
 
 
 # first define the model:
 
-class LassoRegression(LogisticRegressionBase):
+class LassoRegression(LinearRegressionBase):
   
 
     def __init__(self):
@@ -35,10 +35,6 @@ class LassoRegression(LogisticRegressionBase):
     
 
     def predict(self, X: np.matrix):
-        pass
-
-
-    def r_squared(self, X: np.matrix, y: np.array):
         pass
 
     def p_values_for_coefficients(self):

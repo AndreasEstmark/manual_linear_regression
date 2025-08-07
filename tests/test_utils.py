@@ -1,6 +1,6 @@
 import numpy as np
 import pytest
-from src.regression_analysis.utils import check_if_matrix_is_invertible
+from regression_analysis.utils.diagnostics import check_if_matrix_is_invertible
 
 def test_invertible_matrix():
     X = np.array([[1, 2], [3, 4.1]])  # Not singular
