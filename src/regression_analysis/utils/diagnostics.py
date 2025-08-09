@@ -6,7 +6,7 @@ import numpy as np
 Utility functions for linear regression model diagnostics and checks.
 """
 
-def compute_double_sided_t_test_for_coefficients(X: np.matrix, y: np.array, beta: np.array):
+def compute_double_sided_t_test_for_coefficients(X: np.matrix, y: np.array, beta: np.array, alpha: float = 0.05):
     """
     Method to compute the t-statistic for the coefficients of the linear regression model.
     H0: The coefficient is equal to zero (beta coefficient)
@@ -16,8 +16,10 @@ def compute_double_sided_t_test_for_coefficients(X: np.matrix, y: np.array, beta
     Significance level: The significance level is typically set at 0.05, which corresponds to a 95% confidence level.
     Returns: A dictionary with the t-statistic and p-value for each coefficient.
     """
-    pass
 
+    SSE: np.array = y @ y - beta.T @X.T@y 
+
+    print(f"SSE: {SSE}")
 
 def compute_f_statistic(X: np.ndarray, y: np.array, beta: np.array):
     """
@@ -51,8 +53,6 @@ def check_multicollinearity_in_regressors(X: np.ndarray) -> dict:
 
         model = OLSRegression().simple_fit(x_noti, x_i)
 
-        print(f"VIF for x_i: {1 / (1 - model.r_squared)}")
-
         list_of_vifs[f"x_{i}"] = 1 / (1 - model.r_squared)
     
 
@@ -68,15 +68,15 @@ def check_if_matrix_is_invertible(X: np.ndarray):
     return True
 
 
-def check_for_very_skewed_regressors(X: np.ndarray):
+def check_for_very_skewed_data(X: np.ndarray):
     """
-    Method to check for very skewed regressors in the linear regression model.
+    Method to check for very data
     """
     pass
 
 def check_for_outliers_in_regressors(X: np.ndarray):
     """
-    Method to check for outliers in the regressors of the linear regression model. Probably use IQR in the beginning.
+    Method to check for outliers in data
     """
     pass
 
@@ -87,17 +87,33 @@ def check_if_constant_term_is_present(X: np.ndarray):
     """
     pass
 
-class GaussMarkovAssumptions:
+def compute_homoscedasticity(X: np.ndarray, y: np.array, beta: np.array):
+    """
+    Method to compute the homoscedasticity of the linear regression model.
+    """
+    pass
 
-    def compute_homoscedasticity(X: np.ndarray, y: np.array, beta: np.array):
-        """
-        Method to compute the homoscedasticity of the linear regression model.
-        """
-        pass
-    
-    def check_linearity(X: np.ndarray, y: np.array):
-        """
-        Method to check the linearity of the linear regression model.
-        """
-        pass
+def check_linearity(X: np.ndarray, y: np.array):
+    """
+    Method to check the linearity of the linear regression model.
+    """
+    pass
 
+def analyze_residuals_of_model(X: np.ndarray, y:np.array,beta: np.array):
+    """
+    Method to analyze the residuals of the  regression model.
+    """
+    pass
+
+
+def calculate_type_1_error():
+    """
+    This is the risk of false alarm
+    """
+    pass
+
+def calculate_type_2_error():
+    """
+    This is the risk of missed detection
+    """
+    pass
