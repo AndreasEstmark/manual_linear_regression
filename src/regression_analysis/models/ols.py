@@ -75,7 +75,7 @@ class OLSRegression(LinearRegressionBase):
     def fit_and_predict(self, X, y):
         pass
 
-    def predict(self, X: np.matrix):
+    def predict(self, X: np.ndarray):
         pass
 
     def p_values_for_coefficients(self):

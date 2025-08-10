@@ -6,7 +6,7 @@ import numpy as np
 Utility functions for linear regression model diagnostics and checks.
 """
 
-def compute_double_sided_t_test_for_coefficients(X: np.matrix, y: np.array, beta: np.array, alpha: float = 0.05):
+def compute_double_sided_t_test_for_coefficients(X: np.ndarray, y: np.ndarray, beta: np.ndarray, alpha: float = 0.05):
     """
     Method to compute the t-statistic for the coefficients of the linear regression model.
     H0: The coefficient is equal to zero (beta coefficient)
@@ -17,18 +17,24 @@ def compute_double_sided_t_test_for_coefficients(X: np.matrix, y: np.array, beta
     Returns: A dictionary with the t-statistic and p-value for each coefficient.
     """
 
-    SSE: np.array = y @ y - beta.T @X.T@y 
+    y = np.asarray(y).reshape(-1, 1)       # (n, 1)
+    beta = np.asarray(beta).reshape(-1, 1) # (p, 1)
+
+    SSE: np.array = y.T @ y - beta.T @X.T@y  # scalar
+
+    # TODO 
+    # s_squared = SSE / 
 
     print(f"SSE: {SSE}")
 
-def compute_f_statistic(X: np.ndarray, y: np.array, beta: np.array):
+def compute_f_statistic(X: np.ndarray, y: np.ndarray, beta: np.ndarray):
     """
     Method to compute the F-statistic for the linear regression model.
     
     """
     pass
 
-def check_multicollinearity_in_regressors(X: np.ndarray) -> dict:
+def check_multicollinearity_in_regressors(X: np.ndarray) -> np.ndarray:
     """
     Method to check for multicollinearity in the linear regression model. Using VIF
     X is the full design matrix.
@@ -41,7 +47,7 @@ def check_multicollinearity_in_regressors(X: np.ndarray) -> dict:
 
     k_shape = X.shape[1]
 
-    list_of_vifs = {}
+    list_of_vifs = []
 
     for i in range(X.shape[1]):
         # For each regressor x_i, we compute the VIF
@@ -53,7 +59,7 @@ def check_multicollinearity_in_regressors(X: np.ndarray) -> dict:
 
         model = OLSRegression().simple_fit(x_noti, x_i)
 
-        list_of_vifs[f"x_{i}"] = 1 / (1 - model.r_squared)
+        list_of_vifs.append(1 / (1 - model.r_squared))
     
 
     return list_of_vifs

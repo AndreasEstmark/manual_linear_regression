@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def handle_high_vif_columns(X: np.ndarray, vifs: dict, threshold: float = 10.0) -> np.ndarray:
+def handle_high_vif_columns(X: np.ndarray, vifs: np.array, threshold: float = 10.0) -> np.ndarray:
     """
     Handles multicollinearity by prompting the user to remove features with high VIF.
 
@@ -14,7 +14,7 @@ def handle_high_vif_columns(X: np.ndarray, vifs: dict, threshold: float = 10.0) 
         Possibly reduced X (features removed if user agrees)
     """
 
-    high_vif_indices = [i for i, vif in vifs.items() if vif >threshold]
+    high_vif_indices = [i for i, vif in enumerate(vifs) if vif > threshold]
 
     if not high_vif_indices:
         return X
