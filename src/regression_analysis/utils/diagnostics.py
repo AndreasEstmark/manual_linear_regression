@@ -22,6 +22,12 @@ def compute_double_sided_t_test_for_coefficients(X: np.ndarray, y: np.ndarray, b
 
     SSE: np.array = y.T @ y - beta.T @X.T@y  # scalar
 
+    # now the error variance estimate s squared
+
+    n, p = X.shape
+
+    s_squared = SSE / (n-p)
+
     # TODO 
     # s_squared = SSE / 
 
