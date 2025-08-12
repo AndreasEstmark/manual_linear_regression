@@ -1,8 +1,8 @@
 import numpy as np
 
-from models.base import LogisticRegressionBase  
+from models.base import DiscreteModel  
 
-class LogisticRegression(LogisticRegressionBase):
+class LogisticRegression(DiscreteModel):
 
     def __init__(self):
         super().__init__()

@@ -2,7 +2,7 @@ import numpy as np
 from abc import ABC, abstractmethod
 
 
-class LogisticRegressionBase(ABC):
+class DiscreteModel(ABC):
     """Abstract base class for logistic regression models."""
 
     def __init__(self):

@@ -3,7 +3,7 @@ import numpy as np
 from regression_analysis.utils.diagnostics import check_if_matrix_is_invertible
 from abc import ABC, abstractmethod
 
-class LinearRegressionBase(ABC):
+class LinearModel(ABC):
     """Abstract base class for linear regression models."""
 
     def __init__(self):
@@ -19,12 +19,14 @@ class LinearRegressionBase(ABC):
     def simple_fit(self, X: np.ndarray, y: np.ndarray):
         pass
     
+    @abstractmethod
     def fit_and_diagnostics(self, X: np.ndarray, y: np.ndarray):
         """
         Fit the model and run diagnostics.
         """
         pass
-    
+
+    @abstractmethod
     def fit_and_predict(self, X: np.ndarray, y: np.ndarray):
         """
         Fit the model and make predictions.

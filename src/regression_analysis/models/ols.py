@@ -1,15 +1,13 @@
 import numpy as np
 from numpy.linalg import inv
 from regression_analysis.utils.diagnostics import check_if_matrix_is_invertible
-from models.base import LinearRegressionBase
+from models.base import LinearModel
 from regression_analysis.utils.diagnostics import *
 from regression_analysis.utils.diagnostics_handling import handle_high_vif_columns
 
 
 
-# first define the model:
-
-class OLSRegression(LinearRegressionBase):
+class OLSRegression(LinearModel):
     """Linear Regression Model Class
     This class implements a simple linear regression model.
     This is the OLS closed-form solution (also called the normal equation):
