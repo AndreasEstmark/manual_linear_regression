@@ -1,13 +1,11 @@
 import numpy as np
 from numpy.linalg import inv
 from ..utils.diagnostics import check_if_matrix_is_invertible
-from models.base import LinearRegressionBase
+from models.base import LinearModel
 
 
 
-# first define the model:
-
-class RidgeRegression(LinearRegressionBase):
+class RidgeRegression(LinearModel):
   
 
     def __init__(self):
