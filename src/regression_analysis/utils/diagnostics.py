@@ -28,11 +28,6 @@ def compute_double_sided_t_test_for_coefficients(X: np.ndarray, y: np.ndarray, b
 
     s_squared = SSE / (n-p)
 
-    # TODO 
-    # s_squared = SSE / 
-
-    print(f"SSE: {SSE}")
-
 def compute_f_statistic(X: np.ndarray, y: np.ndarray, beta: np.ndarray):
     """
     Method to compute the F-statistic for the linear regression model.
@@ -99,19 +94,19 @@ def check_if_constant_term_is_present(X: np.ndarray):
     """
     pass
 
-def compute_homoscedasticity(X: np.ndarray, y: np.array, beta: np.array):
+def compute_homoscedasticity(X: np.ndarray, y: np.ndarray, beta: np.ndarray):
     """
     Method to compute the homoscedasticity of the linear regression model.
     """
     pass
 
-def check_linearity(X: np.ndarray, y: np.array):
+def check_linearity(X: np.ndarray, y: np.ndarray):
     """
     Method to check the linearity of the linear regression model.
     """
     pass
 
-def analyze_residuals_of_model(X: np.ndarray, y:np.array,beta: np.array):
+def analyze_residuals_of_model(X: np.ndarray, y:np.ndarray,beta: np.ndarray):
     """
     Method to analyze the residuals of the  regression model.
     """

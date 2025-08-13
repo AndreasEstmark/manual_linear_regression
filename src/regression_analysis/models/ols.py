@@ -1,7 +1,7 @@
 import numpy as np
 from numpy.linalg import inv
 from regression_analysis.utils.diagnostics import check_if_matrix_is_invertible
-from models.base import LinearModel
+from regression_analysis.models.linear_base import LinearModel
 from regression_analysis.utils.diagnostics import *
 from regression_analysis.utils.diagnostics_handling import handle_high_vif_columns
 

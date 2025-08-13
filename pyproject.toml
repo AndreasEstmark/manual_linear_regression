@@ -17,7 +17,9 @@ dependencies = [
     "polars (>=1.32.0,<2.0.0)",
     "pyarrow (>=21.0.0,<22.0.0)",
     "ipykernel (>=6.30.0,<7.0.0)",
-    "click (>=8.2.1,<9.0.0)"
+    "click (>=8.2.1,<9.0.0)",
+    "ipywidgets (>=8.1.7,<9.0.0)",
+    "matplotlib (>=3.10.5,<4.0.0)"
 ]
 
 [tool.poetry]
