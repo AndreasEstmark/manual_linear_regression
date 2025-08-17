@@ -81,7 +81,7 @@ def check_for_very_skewed_data(X: np.ndarray):
     """
     pass
 
-def check_for_outliers_in_regressors(X: np.ndarray):
+def check_for_outliers(X: np.ndarray):
     """
     Method to check for outliers in data
     """
