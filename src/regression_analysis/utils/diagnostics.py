@@ -81,11 +81,6 @@ def check_for_very_skewed_data(X: np.ndarray):
     """
     pass
 
-def check_for_outliers(X: np.ndarray):
-    """
-    Method to check for outliers in data
-    """
-    pass
 
 def check_if_constant_term_is_present(X: np.ndarray):
     """
@@ -124,3 +119,22 @@ def calculate_type_2_error():
     This is the risk of missed detection
     """
     pass
+
+def calculate_reciever_operating_characteristic():
+    """
+    This is the ROC curve, which is a graphical representation of the true positive rate against the false positive rate.
+    """
+    pass
+
+def calculate_precision_recall_curve():
+    """
+    This is the precision-recall curve, which is a graphical representation of the precision against the recall.
+    """
+    pass
+
+def calculate_area_under_curve():
+    """
+    This is the area under the curve, which is a measure of the performance of the model.
+    """
+    pass
+
