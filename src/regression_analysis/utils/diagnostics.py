@@ -1,6 +1,8 @@
 import numpy as np
+from numpy.linalg import LinAlgError
 
 
+from exceptions import MulticollinearityError
 
 """
 Utility functions for linear regression model diagnostics and checks.
@@ -58,7 +60,15 @@ def check_multicollinearity_in_regressors(X: np.ndarray) -> np.ndarray:
 
         x_noti = np.column_stack((np.ones(len(x_i)), x_noti))
 
-        model = OLSRegression().simple_fit(x_noti, x_i)
+        try:
+
+            model = OLSRegression().simple_fit(x_noti, x_i)
+
+        except LinAlgError as e:
+            raise MulticollinearityError(
+                f"Multicollinearity detected in regressor: {str(e)}"
+            ) from e
+
 
         list_of_vifs.append(1 / (1 - model.r_squared))
     

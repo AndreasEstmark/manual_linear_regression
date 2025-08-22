@@ -4,7 +4,7 @@ from regression_analysis.utils.diagnostics import check_if_matrix_is_invertible
 from regression_analysis.models.linear_base import LinearModel
 from regression_analysis.utils.diagnostics import *
 from regression_analysis.utils.diagnostics_handling import handle_high_vif_columns
-
+from regression_analysis.utils.exceptions import FitError
 
 
 class OLSRegression(LinearModel):
@@ -68,7 +68,7 @@ class OLSRegression(LinearModel):
 
         compute_double_sided_t_test_for_coefficients(X, y, model.coef_)
 
-        return
+        return 
 
     def fit_and_predict(self, X, y):
         pass
