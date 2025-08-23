@@ -20,16 +20,3 @@ def log_transform_dependent_variable(y:np.ndarray) -> np.ndarray:
     return np.log(y + 1)  # Adding 1 to avoid log(0)
 
 
-def impute_missing_values(X:np.ndarray, imputation_method: str = "mean")->np.ndarray:
-    """ 
-    Method to impute missing values in the data.
-    """
-    pass
-
-
-def standardize_data(X: np.ndarray) -> np.ndarray:
-    """
-    Method to standardize the data.
-    This is useful for linear regression models when the features are on different scales.
-    """
-    pass

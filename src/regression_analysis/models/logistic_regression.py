@@ -1,6 +1,6 @@
 import numpy as np
 
-from models.base import DiscreteModel  
+from regression_analysis.models.linear_base import DiscreteModel  
 
 class LogisticRegression(DiscreteModel):
 

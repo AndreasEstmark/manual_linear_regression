@@ -1,12 +1,12 @@
 import numpy as np
 from numpy.linalg import inv
 from ..utils.diagnostics import check_if_matrix_is_invertible
-from models.base import LinearRegressionBase
+from regression_analysis.models.linear_base import LinearModel
 
 
 # first define the model:
 
-class LassoRegression(LinearRegressionBase):
+class LassoRegression(LinearModel):
   
 
     def __init__(self):

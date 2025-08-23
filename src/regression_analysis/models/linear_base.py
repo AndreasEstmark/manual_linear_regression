@@ -18,7 +18,7 @@ class LinearModel(ABC):
     @abstractmethod
     def simple_fit(self, X: np.ndarray, y: np.ndarray):
         pass
-    
+        
     @abstractmethod
     def fit_and_diagnostics(self, X: np.ndarray, y: np.ndarray):
         """
