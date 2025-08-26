@@ -1,13 +1,13 @@
 import numpy as np
 from numpy.linalg import inv
 from ..utils.diagnostics import check_if_matrix_is_invertible
-from models.base import LinearRegressionBase
+from regression_analysis.models.linear_base import LinearModel
 
 
 
 # first define the model:
 
-class MLERegression(LinearRegressionBase):
+class MLERegression(LinearModel):
     """Linear Regression Model Class
     This class implements a simple linear regression model."""
 

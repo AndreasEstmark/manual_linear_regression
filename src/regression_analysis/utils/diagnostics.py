@@ -1,6 +1,8 @@
 import numpy as np
+from numpy.linalg import LinAlgError
 
 
+from regression_analysis.utils.exceptions import MulticollinearityError
 
 """
 Utility functions for linear regression model diagnostics and checks.
@@ -27,6 +29,8 @@ def compute_double_sided_t_test_for_coefficients(X: np.ndarray, y: np.ndarray, b
     n, p = X.shape
 
     s_squared = SSE / (n-p)
+
+    return s_squared
 
 def compute_f_statistic(X: np.ndarray, y: np.ndarray, beta: np.ndarray):
     """
@@ -58,7 +62,15 @@ def check_multicollinearity_in_regressors(X: np.ndarray) -> np.ndarray:
 
         x_noti = np.column_stack((np.ones(len(x_i)), x_noti))
 
-        model = OLSRegression().simple_fit(x_noti, x_i)
+        try:
+
+            model = OLSRegression().simple_fit(x_noti, x_i)
+
+        except LinAlgError as e:
+            raise MulticollinearityError(
+                f"Multicollinearity detected in regressor: {str(e)}"
+            ) from e
+
 
         list_of_vifs.append(1 / (1 - model.r_squared))
     
@@ -126,9 +138,9 @@ def calculate_reciever_operating_characteristic():
     """
     pass
 
-def calculate_precision_recall_curve():
+def calculate_precision_recal():
     """
-    This is the precision-recall curve, which is a graphical representation of the precision against the recall.
+    This is the precision-recall.
     """
     pass
 
